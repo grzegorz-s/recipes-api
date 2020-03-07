@@ -1,7 +1,7 @@
 import { Router } from "express";
 import recipesRouter from "./recipesRouter";
 import categoriesRouter from "./categoriesRouter";
-// import authRouter from "./routes/authRouter";
+import authRouter from "./authRouter";
 
 const mainEntry = new Router();
 mainEntry.get("/", (request, response) => {
@@ -12,5 +12,6 @@ mainEntry.get("/", (request, response) => {
 export default {
   mainEntry,
   recipesRouter,
-  categoriesRouter
+  categoriesRouter,
+  authRouter
 };

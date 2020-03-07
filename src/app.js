@@ -13,9 +13,12 @@ app.use(
   })
 );
 
+// TODO refactor to initialiaze in router
+// here only one declaration
 app.use("/", appRouter.mainEntry);
 app.use("/recipes", appRouter.recipesRouter);
 app.use("/categories", appRouter.categoriesRouter);
+app.use("/user", appRouter.authRouter);
 
 app.listen(port, () => {
   console.log(`App running on port ${port}.`);
