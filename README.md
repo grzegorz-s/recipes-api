@@ -65,11 +65,12 @@ POST /user/register
 
 // request body
 {
-	"username": "validaName",
-	"email": "validEmail",
-	"password": "password"
+  "username": "validaName",
+  "email": "validEmail",
+  "password": "password"
 }
 ```
+
 </details>
 
 <details open>
@@ -80,19 +81,19 @@ GET /user/login
 
 // request body
 {
-	"email": "validEmail",
-	"password": "password"
+  "email": "validEmail",
+  "password": "password"
 }
 
 // returned
 {
-    "succes": true,
-    "message": "success",
-    "token": "validJWTtoke"
+  "succes": true,
+  "message": "success",
+  "token": "validJWTtoke"
 }
 ```
-</details>
 
+</details>
 
 <details>
 <summary>Logout</summary> 
@@ -136,13 +137,11 @@ You  can list all recipies that match specific category id.
 > Relation for categories and recipes are not implemented yet (need to be done manually)
 If you want to do it, first create couple of recipes and categories and run some query to create relations e.g `INSERT INTO recipes_categories (recipe_id, category_id) VALUES(18, 1);`
 
-```json
-GET /recipes/
+```
+GET /recipes?categoryId=4
 
 // request query params
-{
-  categoryId: 4
-}
+categoryId: 4
 ```
 
 </details>
@@ -158,16 +157,17 @@ POST /recipes
 // request body
 {
   "name": "",
-  "category": "", // dynamic binding with category table is not implemented
+  "category": "",
   "ingredients": "pasta, beef meet, tomatos, red onion, pinch of cinnamon",
   "created_at": "timestamp"
 }
 
 // request header
+// you can pass either x-access-token or authorization
 {
   "Content-Type": "application/json",
-    "x-access-token": "JWTtoken", // you can pass x-access-token or authorization
-    "authorization": "JWTtoken" // you can pass x-access-token or authorization
+  "x-access-token": "JWTtoken",
+  "authorization": "JWTtoken"
 }
 
 ```
@@ -186,16 +186,17 @@ PUT /recipes/:id
 // request body
 {
   "name": "",
-  "category": "", // dynamic binding with category table is not implemented
+  "category": "",
   "ingredients": "pasta, beef meet, tomatos, red onion, pinch of cinnamon",
   "created_at": "timestamp"
 }
 
 // request header
+// you can pass either x-access-token or authorization
 {
   "Content-Type": "application/json",
-    "x-access-token": "JWTtoken", // you can pass x-access-token or authorization
-    "authorization": "JWTtoken" // you can pass x-access-token or authorization
+    "x-access-token": "JWTtoken",
+    "authorization": "JWTtoken"
 }
 
 ```
@@ -212,10 +213,11 @@ This route **is restricted**. You must first login to get the token:
 DELETE /recipes/:id
 
 // request header
+// you can pass either x-access-token or authorization
 {
   "Content-Type": "application/json",
-    "x-access-token": "JWTtoken", // you can pass x-access-token or authorization
-    "authorization": "JWTtoken" // you can pass x-access-token or authorization
+    "x-access-token": "JWTtoken",
+    "authorization": "JWTtoken"
 }
 
 ```
@@ -239,12 +241,10 @@ You  can list all categories that match specific recipe.
 > Relation for categories and recipes are not implemented yet (need to be done manually)
 If you want to do it, first create couple of recipes and categories and run some query to create relations e.g `INSERT INTO recipes_categories (recipe_id, category_id) VALUES(18, 1);`
 
-```json
-GET /categories/
+```
+GET /categories?reipeId=4
 
 // request query params
-{
-  reipeId: 4
-}
+reipeId: 4
 ```
 </details>
