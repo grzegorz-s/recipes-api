@@ -4,7 +4,8 @@ import categoriesService from "../services/recipesCategoryService";
 
 const categoriesRouter = new Router();
 
-categoriesRouter.get("/", categoriesService.getCategories); // should be in controller, not service
+// TODO: getCategories should be in controller, not service
+categoriesRouter.get("/", categoriesService.getCategories); 
 
 export default categoriesRouter;
 
@@ -13,5 +14,3 @@ export default categoriesRouter;
 // INSERT INTO recipes_categories (recipe_id, category_id) VALUES(2, 1);
 // INSERT INTO recipes_categories (recipe_id, category_id) VALUES(2, 4);
 // INSERT INTO recipes_categories (recipe_id, category_id) VALUES(18, 1);
-
-

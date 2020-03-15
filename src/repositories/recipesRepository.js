@@ -88,10 +88,10 @@ const updateExistingRecipe = (changedProperties) => {
   const createdWhere = `id = $${Object.keys(changedProperties).length}`;
   const updatedValues = [ ...Object.values(propertiesForSet), id ];
 
-  const test = `UPDATE recipes SET ${createdSet} WHERE ${createdWhere}`;
+  const recipeUpdateQuery = `UPDATE recipes SET ${createdSet} WHERE ${createdWhere}`;
 
   return new Promise((resolve, reject) => {
-    db.query(test, updatedValues, (error) => {
+    db.query(recipeUpdateQuery, updatedValues, (error) => {
       if (error) {
         reject(error);
         return;

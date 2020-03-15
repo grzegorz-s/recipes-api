@@ -40,6 +40,8 @@ const getSingleRecipe = (req, res) => {
 const createNewRecipe = (req, res) => {
   const newRecipeData = req.body;
 
+  // TODO: create relation table for recipie and author
+  console.log(`Recipie created by ${req.user}`);
   return createRecipe(newRecipeData).then((response) => res.status(200).json(response)).catch((err) => {
     throw err;
   });
