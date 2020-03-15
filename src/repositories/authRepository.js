@@ -19,6 +19,20 @@ const createNewUser = (newUser) => {
   });
 };
 
+const getUser = (userEmail) => {
+  return new Promise((resolve, reject) => {
+    db.query("SELECT * FROM users WHERE email = $1", [ userEmail ], (error, results) => {
+      if (error) {
+        reject(error);
+        return;
+      }
+
+      resolve(results.rows);
+    });
+  });
+};
+
 export default {
-  createNewUser
+  createNewUser,
+  getUser
 };
