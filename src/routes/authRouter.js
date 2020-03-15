@@ -8,5 +8,4 @@ authRouter.post("/login", authService.userLogin);
 authRouter.post("/logout", authService.userLogout);
 authRouter.post("/reset-password", authService.userResetPassword);
 
-
 export default authRouter;

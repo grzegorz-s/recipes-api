@@ -9,7 +9,6 @@ categoriesRouter.get("/", categoriesService.getCategories);
 
 export default categoriesRouter;
 
-
 // updating recipes_categories
 // INSERT INTO recipes_categories (recipe_id, category_id) VALUES(2, 1);
 // INSERT INTO recipes_categories (recipe_id, category_id) VALUES(2, 4);
